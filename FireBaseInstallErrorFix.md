@@ -36,6 +36,7 @@ dependencies {
     implementation "androidx.multidex:multidex:2.0.1"
 }
 
+——\——\——\
 
 IOS при установке ничего ни где не добавлять кроме GoogleService-Info.plist в ios/Runner/ и в Podfile расскоментировать и изменить на:
 platform :ios, '10.0'
@@ -56,6 +57,8 @@ rm Podfile
 5. Run flutter pub get 
 6. Run flutter build ios. Note thas this will also run the pod install command. 
 7. Close your editor, and open your Runner.xcworkspace on XCode and run your XCode. Clean your build folder( - xcodebuild clean). If there's an option to update your project settings, accept it.
+
+——\
 
 Спасаемся от бесконечной загрузки:
 
