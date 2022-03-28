@@ -35,3 +35,38 @@ android {
 dependencies {
     implementation "androidx.multidex:multidex:2.0.1"
 }
+
+
+IOS при установке ничего ни где не добавлять кроме GoogleService-Info.plist в ios/Runner/ и в Podfile расскоментировать и изменить на:
+platform :ios, '10.0'
+
+
+Очищение если необходимо
+sudo gem install cocoapods-deintegrate cocoapods-clean
+pod deintegrate
+pod clean
+rm Podfile
+
+— способ 2 
+
+1. Delete the Pods directory, the /ios/podfile.lock, and the ios/Flutter/Flutter.podspec 
+2. Run pod deintegrate 
+3. Delete all of the contents inside your DerivedData folder.. you can run rm -rf ~/Library/Developer/Xcode/DerivedData/*  
+4. Run flutter clean 
+5. Run flutter pub get 
+6. Run flutter build ios. Note thas this will also run the pod install command. 
+7. Close your editor, and open your Runner.xcworkspace on XCode and run your XCode. Clean your build folder( - xcodebuild clean). If there's an option to update your project settings, accept it.
+
+Спасаемся от бесконечной загрузки:
+
+Open the Podfile inside the ios folder, then add this line inside your target 'Runner' do block:
+
+target 'Runner' do
+  pod 'FirebaseFirestore', :git => 'https://github.com/invertase/firestore-ios-sdk-frameworks.git', :tag => '8.9.0'
+
+# ...
+end
+
+Соответственно меняем версию на нашу текущую:
+
+pod 'FirebaseFirestore', :git => 'https://github.com/invertase/firestore-ios-sdk-frameworks.git', :tag => ‘8.11.0'
