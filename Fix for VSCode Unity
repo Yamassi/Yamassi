@@ -1,0 +1,11 @@
+Обязательно выставляем в настройках Unity в External Tools editor по умолчанию VSCode
+
+1) Устанавливаем .Net SDK для mac
+2) Устанавливаем  Mono для mac
+
+3) В VSCode в extensions —> в настройках C#  —> в OmniSharp Mono path в файле JSON прописываем:
+	1.	{ 
+	2.	    "omnisharp.useGlobalMono": "always", 
+	3.	    "omnisharp.monoPath": "/Library/Frameworks/Mono.framework/Versions/Current/Commands/" 
+	4.	} 
+4) Обязательно перезагружаем и создаем скрипт только в новом проекте иначе не будет работать
